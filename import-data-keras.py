@@ -22,12 +22,18 @@ os.makedirs(data_dir, exist_ok=True)
 
 # Download and extract the training data
 subprocess.run(["wget", "-q", "-O", train_tar_path, train_tar_url], check=True)
-subprocess.run(["tar", "-xzf", train_tar_path, "-C", data_dir], check=True)
+subprocess.run(
+    ["tar", "-xzf", train_tar_path, "-C", data_dir, "--exclude", ".*"], check=True
+)
 
 # Download and extract the validation data
 subprocess.run(["wget", "-q", "-O", valid_tar_path, valid_tar_url], check=True)
-subprocess.run(["tar", "-xzf", valid_tar_path, "-C", data_dir], check=True)
+subprocess.run(
+    ["tar", "-xzf", valid_tar_path, "-C", data_dir, "--exclude", ".*"], check=True
+)
 
 # Download and extract the test data
 subprocess.run(["wget", "-q", "-O", test_tar_path, test_tar_url], check=True)
-subprocess.run(["tar", "-xzf", test_tar_path, "-C", data_dir], check=True)
+subprocess.run(
+    ["tar", "-xzf", test_tar_path, "-C", data_dir, "--exclude", ".*"], check=True
+)
