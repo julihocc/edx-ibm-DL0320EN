@@ -133,3 +133,4 @@ cython_debug/
 
 resources/ 
 *.code-workspace
+.history/
